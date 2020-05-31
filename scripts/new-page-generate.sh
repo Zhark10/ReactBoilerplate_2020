@@ -17,7 +17,7 @@ touch $NAME.tsx
 cat > $NAME.tsx <<- EOM
 import React from 'react';
 import './$NAME.scss';
-import { use$NAME } from './$NAME';
+import { use$NAME } from './$NAME-ViewModel';
 
 const $NAME = () => {
   const viewModel = use$NAME()
@@ -38,8 +38,8 @@ cat > $NAME.scss <<- EOM
 }
 EOM
 
-touch '$NAME_ViewModel.ts' 
-cat > $NAME.ts <<- EOM
+touch $NAME-ViewModel.ts
+cat > $NAME-ViewModel.ts <<- EOM
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
