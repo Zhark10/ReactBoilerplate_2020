@@ -1,6 +1,9 @@
 #!/bin/bash
 
-echo "Enter SHARED COMPONENT name:"
+green=`tput setaf 2`
+red=`tput setaf 1`
+reset=`tput sgr0`
+echo "${green}Enter ${red}SHARED COMPONENT ${green}name:${reset}"
 read name
 
 lowercase_name=${name,,}
@@ -9,10 +12,11 @@ cd ../src/ui/shared && mkdir $name && cd $name
 
 touch $name.tsx 
 cat > $name.tsx <<- EOM
-import React from 'react';
-import './$name.scss';
+import React, { FC } from 'react';
 
-export default function $name() {
+import './$name.scss'
+
+export const $name: FC = () => {
     return (
         <div className='$lowercase_name'>
             some content...
@@ -27,3 +31,11 @@ cat > $name.scss <<- EOM
 
 }
 EOM
+
+SEARCH_EXPORT_OBJECT_VAL='export'
+NEW_IMPORT="import { $name } from '.\/$name\/$name';"
+
+cd ../
+
+sed -i "$!N;s/$SEARCH_EXPORT_OBJECT_VAL.*/& $name,/" exports.ts 
+sed -i -e "1 s/^/$NEW_IMPORT\n/;" exports.ts 
