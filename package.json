@@ -6,7 +6,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "new:shared": "cd ./scripts && ./new-shared-generate.sh",
+    "new:page": "cd ./scripts && ./new-page-generate.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
