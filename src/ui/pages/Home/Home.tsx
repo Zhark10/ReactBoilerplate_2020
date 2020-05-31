@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './Home.scss';
+import { useHome1 } from './Home';
 
-export default function Home() {
-    return (
-        <div className="main-page">
-            is main page
-        </div>
-    )
+const Home: FC = () => {
+  const viewModel = useHome1()
+  return (
+    <div className="home">
+      is Home page
+    </div>
+  )
 }
+
+export default Home;
