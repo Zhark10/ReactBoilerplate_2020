@@ -1,41 +1,48 @@
 #!/bin/bash
 
-green=`tput setaf 2`
-red=`tput setaf 1`
-reset=`tput sgr0`
-echo "${green}Enter ${red}SHARED COMPONENT ${green}name:${reset}"
-read name
+GREEN=`tput setaf 2`
+RED=`tput setaf 1`
+DEFAULT_COLOR=`tput sgr0`
+echo "${GREEN}Enter ${RED}SHARED COMPONENT ${GREEN}name:${DEFAULT_COLOR}"
+read NAME
+LOWERCASE_NAME=${NAME,,}
 
-lowercase_name=${name,,}
+# !----------------- COMPONENT DIRECTORY CREATE: -------------------!
 
-cd ../src/ui/shared && mkdir $name && cd $name
+cd ../src/ui/shared && mkdir $NAME && cd $NAME
 
-touch $name.tsx 
-cat > $name.tsx <<- EOM
+# !----------------- CONTENT GENERATE: -----------------------------!
+
+touch $NAME.tsx 
+cat > $NAME.tsx <<- EOM
 import React, { FC } from 'react';
 
-import './$name.scss'
+import './$NAME.scss'
 
-export const $name: FC = () => {
+export const $NAME: FC = () => {
     return (
-        <div className='$lowercase_name'>
+        <div className='$LOWERCASE_NAME'>
             some content...
         </div>
     )
 }
 EOM
 
-touch $name.scss 
-cat > $name.scss <<- EOM
-.$lowercase_name {
+touch $NAME.scss 
+cat > $NAME.scss <<- EOM
+.$LOWERCASE_NAME {
 
 }
 EOM
 
+# !----------------- REFRESH EXPORTS: ------------------------------!
+
 SEARCH_EXPORT_OBJECT_VAL='export'
-NEW_IMPORT="import { $name } from '.\/$name\/$name';"
+NEW_IMPORT="import { $NAME } from '.\/$NAME\/$NAME';"
 
 cd ../
 
-sed -i "$!N;s/$SEARCH_EXPORT_OBJECT_VAL.*/& $name,/" exports.ts 
+sed -i "$!N;s/$SEARCH_EXPORT_OBJECT_VAL.*/& $NAME,/" exports.ts
 sed -i -e "1 s/^/$NEW_IMPORT\n/;" exports.ts 
+
+echo "${GREEN}Successfully created, dude! :)${DEFAULT_COLOR}"
