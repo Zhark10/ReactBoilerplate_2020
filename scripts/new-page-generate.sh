@@ -59,12 +59,9 @@ EOM
 
 # !----------------- REFRESH EXPORTS: ------------------------------!
 
-SEARCH_EXPORT_OBJECT_VAL='export'
-NEW_IMPORT="import { $NAME } from '.\/$NAME\/$NAME';"
+NEW_LAZY_IMPORT="const _$NAME = React.lazy(() => import('../ui/pages/$NAME/$NAME'));"
 
-cd ../
+cd ../../../router
+echo $NEW_LAZY_IMPORT >> Router.tsx
 
-sed -i "$!N;s/$SEARCH_EXPORT_OBJECT_VAL.*/& $NAME,/" exports.ts 
-sed -i -e "1 s/^/$NEW_IMPORT\n/;" exports.ts 
-
-echo "${GREEN}Successfully created, dude! :)${DEFAULT_COLOR}"
+echo "${GREEN}Yeah! Successfully created, dude! :)${DEFAULT_COLOR}"

@@ -45,4 +45,4 @@ cd ../
 sed -i "$!N;s/$SEARCH_EXPORT_OBJECT_VAL.*/& $NAME,/" exports.ts
 sed -i -e "1 s/^/$NEW_IMPORT\n/;" exports.ts 
 
-echo "${GREEN}Successfully created, dude! :)${DEFAULT_COLOR}"
+echo "${GREEN}Yeah! Successfully created, dude! :)${DEFAULT_COLOR}"
