@@ -8,7 +8,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "new:shared": "cd ./scripts && ./new-shared-generate.sh",
-    "new:page": "cd ./scripts && ./new-page-generate.sh"
+    "new:page": "cd ./scripts && ./new-page-generate.sh",
+    "env:dev": "cat dev.env > .env && node index.js",
+    "env:prod": "cat prod.env > .env && node index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,6 +29,7 @@
   },
   "dependencies": {
     "connected-react-router": "^6.6.1",
+    "dotenv": "^8.2.0",
     "history": "^4.10.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
