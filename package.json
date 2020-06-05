@@ -9,8 +9,10 @@
     "eject": "react-scripts eject",
     "new:shared": "cd ./scripts && ./new-shared-generate.sh",
     "new:page": "cd ./scripts && ./new-page-generate.sh",
-    "env:dev": "cat dev.env > .env && node index.js",
-    "env:prod": "cat prod.env > .env && node index.js"
+    "env:dev": "cat dev.env > .env",
+    "env:prod": "cat prod.env > .env",
+    "start:dev": "yarn env:dev && yarn start",
+    "start:prod": "yarn env:prod && yarn start"
   },
   "eslintConfig": {
     "extends": "react-app"
