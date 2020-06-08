@@ -9,6 +9,7 @@
 - #### Typescript
 - #### Redux
 - #### Redux-saga
+- #### Redux-actions
 - #### React-router-redux
 - #### React-router-dom
 - #### Connected-react-router
