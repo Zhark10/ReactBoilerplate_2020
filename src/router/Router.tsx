@@ -11,6 +11,7 @@ export default class MainRouter extends Component {
                 <Suspense fallback={<Shared.Preloader />}>
                     <Switch>
                         <Route path="/" component={_Home} />
+                        <Route path="/second" component={_SecondPage} />
                     </Switch>
                 </Suspense>
             </Router>
@@ -19,3 +20,4 @@ export default class MainRouter extends Component {
 }
 
 const _Home = React.lazy(() => import('../ui/pages/Home/Home'));
+const _SecondPage = React.lazy(() => import('../ui/pages/SecondPage/SecondPage'));
