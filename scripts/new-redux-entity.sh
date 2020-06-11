@@ -14,23 +14,23 @@ cd ../src/redux/modules && mkdir $LOWERCASE_NAME && cd $LOWERCASE_NAME
 
 # !----------------- DEFAULT REDUCER GENERATE: ---------------------!
 
-touch Reducer_$NAME.ts 
-cat > Reducer_$NAME.ts <<- EOM
+touch Reducer.ts 
+cat > Reducer.ts <<- EOM
 import { handleActions } from 'redux-actions';
 import { I$NAME } from '../../types';
-import { $NAMEActions } from '../actions';
+import { Actions$NAME } from '../actions';
 
 const initialState = null;
 
-export const $NAMEReducer = handleActions<I$NAME | null, I$NAME>({
-    [$NAMEActions.Type.SAVE_$UPPERCASE_NAME]: (state, action) => action.payload,
+export const Reducer$NAME = handleActions<I$NAME | null, I$NAME>({
+    [Actions$NAME.Type.SAVE_$UPPERCASE_NAME]: (state, action) => action.payload,
 }, initialState);
 EOM
 
 # !----------------- DEFAULT ACTIONS GENERATE: ---------------------!
 
-touch Actions_$NAME.ts 
-cat > Actions_$NAME.ts <<- EOM
+touch Actions.ts 
+cat > Actions.ts <<- EOM
 import { createAction } from 'redux-actions';
 import { I$NAME } from '../../types';
 
@@ -38,15 +38,15 @@ enum Type {
     SAVE_$UPPERCASE_NAME = 'SAVE_$UPPERCASE_NAME'
 }
 
-const save$Name = createAction<I$Name>(Type.SAVE_$UPPERCASE_NAME);
+const save$NAME = createAction<I$NAME>(Type.SAVE_$UPPERCASE_NAME);
 
-export const UserActions = {
+export const Actions$NAME = {
     Type,
 
-    save$Name,
+    save$NAME,
 }
 
-export type $NameActions = Omit<typeof $NameActions, 'Type'>;
+export type Actions$NAME = Omit<typeof Actions$NAME, 'Type'>;
 EOM
 
 # !----------------- REFRESH EXPORTS: ------------------------------!

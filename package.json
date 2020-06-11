@@ -9,6 +9,7 @@
     "eject": "react-scripts eject",
     "new:shared": "cd ./scripts && ./new-shared-generate.sh",
     "new:page": "cd ./scripts && ./new-page-generate.sh",
+    "new:entity": "cd ./scripts && ./new-redux-entity.sh",
     "env:dev": "cat dev.env > .env",
     "env:prod": "cat prod.env > .env",
     "start:dev": "yarn env:dev && yarn start",
