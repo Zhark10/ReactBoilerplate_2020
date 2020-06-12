@@ -5,7 +5,8 @@ import { ActionsCommon } from './Actions';
 const initialState = null;
 
 const ReducerCommon = handleActions<ICommon | null, ICommon>({
-    [ActionsCommon.Type.SAVE_COMMON]: (state, action) => action.payload,
+    [ActionsCommon.Type.IS_LOADER_SHOW]: (state, action) => ({...state, [action.payload as string]: true}),
+    [ActionsCommon.Type.IS_LOADER_HIDE]: (state, action) => ({...state, [action.payload as string]: false}),
 }, initialState);
 
 export default ReducerCommon

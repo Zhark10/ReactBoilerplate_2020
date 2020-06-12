@@ -6,8 +6,8 @@ enum Type {
     IS_LOADER_HIDE = 'IS_LOADER_HIDE',
 }
 
-const showLoader = createAction<ICommon>(Type.IS_LOADER_SHOW);
-const hideLoader = createAction<ICommon>(Type.IS_LOADER_HIDE);
+const showLoader = createAction<string>(Type.IS_LOADER_SHOW);
+const hideLoader = createAction<string>(Type.IS_LOADER_HIDE);
 
 export const ActionsCommon = {
     Type,
