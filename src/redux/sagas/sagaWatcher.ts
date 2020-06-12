@@ -1,13 +1,13 @@
 import {takeEvery, put,call}  from 'redux-saga/effects'
-import {ActionsAuth}  from '../modules/auth/Actions'
+import { ActionsPosts } from '../modules/posts/Actions';
 
 function* sagaWatcher() {
-    yield takeEvery(ActionsAuth.Type.SAVE_AUTH, sagaWorker)
+    yield takeEvery(ActionsPosts.Type.SAVE_POSTS, sagaWorker)
 }
 
 function* sagaWorker() {
     try {
-
+        yield call()
     } catch(e) {
 
     }

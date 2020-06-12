@@ -65,6 +65,6 @@ EOM
 NEW_MODULE_EXPORT="export { default as $LOWERCASE_NAME } from './$LOWERCASE_NAME/Reducer'"
 
 cd ..
-echo $NEW_MODULE_EXPORT >> index.ts
+echo $NEW_MODULE_EXPORT >> exports.ts
 
 echo "${GREEN}Yeah! Successfully created, dude! :)${DEFAULT_COLOR}"

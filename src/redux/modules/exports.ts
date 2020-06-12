@@ -1,2 +1,2 @@
-export { default as auth } from './auth/Reducer'
-export { default as user } from './user/Reducer'
+export { default as posts } from './posts/Reducer'
+export { default as common } from './common/Reducer'
