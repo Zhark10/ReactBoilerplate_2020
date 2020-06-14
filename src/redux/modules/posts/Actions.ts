@@ -1,20 +1,16 @@
 import { createAction } from 'redux-actions';
 import { IPost } from './TReducer';
-import { ActionTypesPosts } from './TActions';
-const { SagaEvents, StoreActions } = ActionTypesPosts;
+import { ActionTypes_Posts } from './TActions';
+const { SagaEvents, StoreActions } = ActionTypes_Posts;
 
-const fetchPosts = createAction(SagaEvents.FETCH_POSTS);
-
-const showLoader = createAction(StoreActions.IS_LOADER_SHOW);
-const hideLoader = createAction(StoreActions.IS_LOADER_HIDE);
-const savePosts = createAction<IPost[]>(StoreActions.SAVE_POSTS);
-
-export const ActionsPosts = {
-    fetchPosts,
-    
-    showLoader,
-    hideLoader,
-    savePosts,
+export const Actions_Posts = {
+  saga: {
+    fetchPosts: createAction(SagaEvents.FETCH_POSTS),
+  },
+  
+  store: {
+    showLoader: createAction(StoreActions.IS_LOADER_SHOW),
+    hideLoader: createAction(StoreActions.IS_LOADER_HIDE),
+    savePosts: createAction<IPost[]>(StoreActions.SAVE_POSTS),
+  }
 }
-
-export type ActionsPosts = Omit<typeof ActionsPosts, 'Type'>;

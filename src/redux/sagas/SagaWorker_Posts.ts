@@ -1,16 +1,16 @@
-import {takeEvery, put,call}  from 'redux-saga/effects'
-import { ActionsPosts } from '../modules/posts/Actions';
+import { put, call }  from 'redux-saga/effects'
+import { Actions_Posts } from '../modules/posts/Actions';
 import axios from 'axios';
 
-function* SAGA_WorkerOfPosts() {
-    try {
-        yield put(ActionsPosts.showLoader())
-        const payload = yield call(getPosts)
-        yield put(ActionsPosts.savePosts(payload))
-        yield put(ActionsPosts.hideLoader())
-    } catch(e) {
-        alert('Oops... Something went wrong!')
-    }
+function* SagaWorker_Posts() {
+  try {
+    yield put(Actions_Posts.store.showLoader())
+    const payload = yield call(getPosts)
+    yield put(Actions_Posts.store.savePosts(payload))
+    yield put(Actions_Posts.store.hideLoader())
+  } catch(e) {
+    alert('Oops... Something went wrong!')
+  }
 }
 
 const getPosts = async () => (axios({
@@ -18,4 +18,4 @@ const getPosts = async () => (axios({
   url: "https://jsonplaceholder.typicode.com/posts?_limit=5"
 }))
 
-export default SAGA_WorkerOfPosts;
+export default SagaWorker_Posts;

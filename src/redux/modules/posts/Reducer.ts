@@ -1,8 +1,8 @@
 import { handleActions } from 'redux-actions';
 import { IStatePosts, IPost } from './TReducer';
-import { ActionTypesPosts } from './TActions';
+import { ActionTypes_Posts } from './TActions';
 
-const { StoreActions } = ActionTypesPosts;
+const { StoreActions } = ActionTypes_Posts;
 
 
 const initialState: IStatePosts = {

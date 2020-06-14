@@ -8,7 +8,7 @@ enum SagaEvents {
     FETCH_POSTS = 'FETCH_POSTS'
 }
 
-export const ActionTypesPosts = {
+export const ActionTypes_Posts = {
     SagaEvents,
     StoreActions,
 }

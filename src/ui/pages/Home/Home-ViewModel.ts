@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { ActionsPosts } from '../../../redux/modules/posts/Actions';
+import { Actions_Posts } from '../../../redux/modules/posts/Actions';
 
 export const useHome = () => {
   const { data } = useSelector((state: any) => state.posts);
@@ -9,7 +9,7 @@ export const useHome = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ActionsPosts.fetchPosts())
+    dispatch(Actions_Posts.saga.fetchPosts())
   }, [])
 
   return { goBack, data }
