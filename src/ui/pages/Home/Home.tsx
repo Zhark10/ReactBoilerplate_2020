@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './Home.scss';
 import { useHome } from './Home-ViewModel';
+import { Preloader } from '../../shared/Preloader/Preloader';
 
-const Home = () => {
+const Home: FC = () => {
   const viewModel = useHome()
+  if (!viewModel.data) return <Preloader/>
+  
   return (
-    viewModel.data ? 
     <div className="home">
       is Home page
-    </div> : <></>
+    </div>
   )
 }
 

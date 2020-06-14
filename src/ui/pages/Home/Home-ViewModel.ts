@@ -9,7 +9,7 @@ export const useHome = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({type: ActionsPosts.Type.SAVE_POSTS})
+    dispatch(ActionsPosts.fetch())
   }, [])
 
   return { goBack, data }
