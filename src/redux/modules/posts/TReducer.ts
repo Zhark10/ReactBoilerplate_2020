@@ -3,6 +3,8 @@ export interface IStatePosts {
   data: IPost[] | null,
 }
 
+export type TPosts = IPost[];
+
 export interface IPost {
   userId: number,
   id: number,
