@@ -15,11 +15,11 @@ cd ../src/ui/pages && mkdir $NAME && cd $NAME
 
 touch $NAME.tsx 
 cat > $NAME.tsx <<- EOM
-import React from 'react';
+import React, { FC }  from 'react';
 import './$NAME.scss';
 import { use$NAME } from './$NAME-ViewModel';
 
-const $NAME = () => {
+const $NAME: FC  = () => {
   const viewModel = use$NAME()
   return (
     <div className="$LOWERCASE_NAME">
