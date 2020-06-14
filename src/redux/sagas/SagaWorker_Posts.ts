@@ -2,11 +2,7 @@ import {takeEvery, put,call}  from 'redux-saga/effects'
 import { ActionsPosts } from '../modules/posts/Actions';
 import axios from 'axios';
 
-function sagaWatcher() {
-    return takeEvery(ActionsPosts.Type.FETCH, sagaWorker)
-}
-
-function* sagaWorker() {
+function* SAGA_WorkerOfPosts() {
     try {
         yield put(ActionsPosts.showLoader())
         const payload = yield call(getPosts)
@@ -17,15 +13,9 @@ function* sagaWorker() {
     }
 }
 
-const getPosts = async () => (
-  axios({
-    method: "get",
-    url: "https://jsonplaceholder.typicode.com/posts?_limit=5"
-  })
-)
+const getPosts = async () => (axios({
+  method: "get",
+  url: "https://jsonplaceholder.typicode.com/posts?_limit=5"
+}))
 
-
-    // const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
-    // return await response.json()
-
-export default sagaWatcher;
+export default SAGA_WorkerOfPosts;

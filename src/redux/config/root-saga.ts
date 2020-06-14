@@ -1,8 +1,9 @@
-import { all } from 'redux-saga/effects';
-import * as Sagas from '../sagas/exports'
+import { all, takeEvery } from 'redux-saga/effects';
+import { SagaWorker_Posts } from '../sagas/exports';
+import { ActionTypesPosts } from '../modules/posts/TActions';
 
 export default function* rootSaga() {
     yield all([
-        Sagas.sagaWatcher()
+        takeEvery(ActionTypesPosts.SagaEvents.FETCH_POSTS, SagaWorker_Posts)
     ]);
 }

@@ -1,23 +1,17 @@
 import { createAction } from 'redux-actions';
-import { IPost } from './Types';
+import { IPost } from './TReducer';
+import { ActionTypesPosts } from './TActions';
+const { SagaEvents, StoreActions } = ActionTypesPosts;
 
-enum Type {
-    IS_LOADER_SHOW = 'IS_LOADER_SHOW',
-    IS_LOADER_HIDE = 'IS_LOADER_HIDE',
-    SAVE_POSTS = 'SAVE_POSTS',
+const fetchPosts = createAction(SagaEvents.FETCH_POSTS);
 
-    FETCH = 'FETCH'
-}
-const fetch = createAction(Type.FETCH);
-
-const showLoader = createAction(Type.IS_LOADER_SHOW);
-const hideLoader = createAction(Type.IS_LOADER_HIDE);
-const savePosts = createAction<IPost[]>(Type.SAVE_POSTS);
+const showLoader = createAction(StoreActions.IS_LOADER_SHOW);
+const hideLoader = createAction(StoreActions.IS_LOADER_HIDE);
+const savePosts = createAction<IPost[]>(StoreActions.SAVE_POSTS);
 
 export const ActionsPosts = {
-    Type,
-
-    fetch,
+    fetchPosts,
+    
     showLoader,
     hideLoader,
     savePosts,

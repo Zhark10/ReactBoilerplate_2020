@@ -9,7 +9,7 @@ export const useHome = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ActionsPosts.fetch())
+    dispatch(ActionsPosts.fetchPosts())
   }, [])
 
   return { goBack, data }
