@@ -17,7 +17,7 @@ cd ../src/redux/modules && mkdir $LOWERCASE_NAME && cd $LOWERCASE_NAME
 touch Reducer.ts 
 cat > Reducer.ts <<- EOM
 import { handleActions } from 'redux-actions';
-import { IState$NAME } from './TReducer';
+import { IState$NAME, T$NAME } from './TReducer';
 import { ActionTypes_$NAME } from './TActions';
 
 const { StoreActions } = ActionTypes_$NAME;
@@ -27,14 +27,14 @@ const initialState: IState$NAME = {
     data: null,
 };
 
-const Reducer$NAME = handleActions<IState$NAME, any /* data type for saving */>({
+const Reducer$NAME = handleActions<IState$NAME, T$NAME>({
     [StoreActions.IS_LOADER_SHOW]: (state) => ({...state, isLoading: true}),
     [StoreActions.IS_LOADER_HIDE]: (state) => ({...state, isLoading: false}),
     
     [StoreActions.SAVE_$UPPERCASE_NAME]: (state, action) => ({...state, data: action.payload}),
 }, initialState);
 
-export default Reducer$NAME
+export default Reducer$NAME;
 EOM
 
 # !----------------- DEFAULT ACTIONS GENERATE: ---------------------!
@@ -42,30 +42,49 @@ EOM
 touch Actions.ts 
 cat > Actions.ts <<- EOM
 import { createAction } from 'redux-actions';
-import { I$NAME } from './Types';
+import { ActionTypes_$NAME } from './TActions';
+import { T$NAME } from './TReducer';
+const { SagaEvents, StoreActions } = ActionTypes_$NAME;
 
-enum Type {
-    SAVE_$UPPERCASE_NAME = 'SAVE_$UPPERCASE_NAME'
-}
-
-const save$NAME = createAction<I$NAME>(Type.SAVE_$UPPERCASE_NAME);
-
-export const Actions$NAME = {
-    Type,
-
-    save$NAME,
-}
-
-export type Actions$NAME = Omit<typeof Actions$NAME, 'Type'>;
+export const Actions_$NAME = {
+  saga: { },
+  
+  store: {
+    showLoader: createAction(StoreActions.IS_LOADER_SHOW),
+    hideLoader: createAction(StoreActions.IS_LOADER_HIDE),
+    save$NAME: createAction<T$NAME>(StoreActions.SAVE_$UPPERCASE_NAME),
+  }
+};
 EOM
 
 # !----------------- DEFAULT ACTIONS GENERATE: ---------------------!
 
-touch Types.ts 
-cat > Types.ts <<- EOM
-export interface I$NAME {
+touch TReducer.ts 
+cat > TReducer.ts <<- EOM
+export interface IState$NAME {
+  isLoading: boolean,
+  data: T$NAME | null,
+};
 
-}
+export type T$NAME = any;
+EOM
+
+# !----------------- DEFAULT ACTIONS GENERATE: ---------------------!
+
+touch TActions.ts 
+cat > TActions.ts <<- EOM
+enum StoreActions {
+    IS_LOADER_SHOW = 'IS_LOADER_SHOW',
+    IS_LOADER_HIDE = 'IS_LOADER_HIDE',
+    SAVE_$UPPERCASE_NAME = 'SAVE_$UPPERCASE_NAME',
+};
+
+enum SagaEvents { };
+
+export const ActionTypes_$NAME = {
+    SagaEvents,
+    StoreActions,
+};
 EOM
 
 # !----------------- REFRESH EXPORTS: ------------------------------!
