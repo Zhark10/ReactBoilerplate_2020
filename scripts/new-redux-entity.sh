@@ -17,13 +17,21 @@ cd ../src/redux/modules && mkdir $LOWERCASE_NAME && cd $LOWERCASE_NAME
 touch Reducer.ts 
 cat > Reducer.ts <<- EOM
 import { handleActions } from 'redux-actions';
-import { I$NAME } from './Types';
-import { Actions$NAME } from './Actions';
+import { IState$NAME } from './TReducer';
+import { ActionTypes_$NAME } from './TActions';
 
-const initialState = null;
+const { StoreActions } = ActionTypes_$NAME;
 
-const Reducer$NAME = handleActions<I$NAME | null, I$NAME>({
-    [Actions$NAME.Type.SAVE_$UPPERCASE_NAME]: (state, action) => action.payload,
+const initialState: IState$NAME = {
+    isLoading: false,
+    data: null,
+};
+
+const Reducer$NAME = handleActions<IState$NAME, any /* data type for saving */>({
+    [StoreActions.IS_LOADER_SHOW]: (state) => ({...state, isLoading: true}),
+    [StoreActions.IS_LOADER_HIDE]: (state) => ({...state, isLoading: false}),
+    
+    [StoreActions.SAVE_$UPPERCASE_NAME]: (state, action) => ({...state, data: action.payload}),
 }, initialState);
 
 export default Reducer$NAME
