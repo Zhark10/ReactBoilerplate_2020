@@ -5,24 +5,23 @@ import { createBrowserHistory } from 'history';
 
 import rootSaga from "./root-saga";
 import rootReducer from "./root-reducer";
-import { ActionTypes_Errors } from "../modules/errors/TActions";
+import { Actions_Errors } from "../modules/errors/Actions";
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware({
-    onError: (e: any) => {
-        store.dispatch({ 
-            type: ActionTypes_Errors.StoreActions.SET_ERROR, 
-            payload: e.response.status 
-        })
-    }
+  onError: (e: any) => {
+    store.dispatch(Actions_Errors.store.setError(e.response.status))
+  }
 });
 
 const composeEnhancers = (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const enhancer = composeEnhancers(
-    applyMiddleware(sagaMiddleware, routerMiddleware(history))
+  applyMiddleware(sagaMiddleware, routerMiddleware(history))
 );
 
 const store = createStore(rootReducer, enhancer);
 sagaMiddleware.run(rootSaga);
 
-export default { store, history };
+export const storeConfig = { 
+  store, history 
+};

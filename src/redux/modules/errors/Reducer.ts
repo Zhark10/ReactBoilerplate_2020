@@ -10,7 +10,7 @@ const initialState: IStateErrors = {
 
 const ReducerErrors = handleActions<IStateErrors, TCurrentError>({
   [StoreActions.RESET_ERROR]: () => ({currentError: null}),
-  [StoreActions.SET_ERROR]: (state, action) => ({...state, data: action.payload}),
+  [StoreActions.SET_ERROR]: (_, action) => ({currentError: action.payload}),
 }, initialState);
 
 export default ReducerErrors;
