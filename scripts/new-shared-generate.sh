@@ -20,11 +20,11 @@ import React, { FC } from 'react';
 import './$NAME.scss'
 
 export const $NAME: FC = () => {
-    return (
-        <div className='$LOWERCASE_NAME'>
-            some content...
-        </div>
-    )
+  return (
+    <div className='$LOWERCASE_NAME'>
+      some content...
+    </div>
+  )
 }
 EOM
 

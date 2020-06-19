@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import './Home.scss';
 import { useHome } from './Home-ViewModel';
-import { Preloader } from '../../shared/Preloader/Preloader';
+import { Shared } from '../../shared/exports';
 
 const Home: FC = () => {
   const viewModel = useHome()
   const posts = viewModel.data;
-  if (!posts) return <Preloader/>
+  if (!posts) return <Shared.Preloader/>
   
   return (
     <div className="home">
@@ -20,6 +20,9 @@ const Home: FC = () => {
           )
         )}
       </ul>
+      <button onClick={()=>viewModel.push('users')}>
+        Go to Users
+      </button>
     </div>
   )
 }

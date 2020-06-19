@@ -6,12 +6,12 @@ import { TState } from '../../../redux/config/root-types';
 
 export const useHome = () => {
   const { data } = useSelector((state: TState) => state.posts);
-  const { goBack } = useHistory();
+  const { goBack, push } = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(Actions_Posts.saga.fetchPosts())
   }, [dispatch])
 
-  return { goBack, data }
+  return { goBack, push, data }
 }

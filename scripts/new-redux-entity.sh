@@ -23,15 +23,15 @@ import { ActionTypes_$NAME } from './TActions';
 const { StoreActions } = ActionTypes_$NAME;
 
 const initialState: IState$NAME = {
-    isLoading: false,
-    data: null,
+  isLoading: false,
+  data: null,
 };
 
 const Reducer$NAME = handleActions<IState$NAME, T$NAME>({
-    [StoreActions.IS_LOADER_SHOW]: (state) => ({...state, isLoading: true}),
-    [StoreActions.IS_LOADER_HIDE]: (state) => ({...state, isLoading: false}),
-    
-    [StoreActions.SAVE_$UPPERCASE_NAME]: (state, action) => ({...state, data: action.payload}),
+  [StoreActions.IS_LOADER_SHOW]: (state) => ({...state, isLoading: true}),
+  [StoreActions.IS_LOADER_HIDE]: (state) => ({...state, isLoading: false}),
+  
+  [StoreActions.SAVE_$UPPERCASE_NAME]: (state, action) => ({...state, data: action.payload}),
 }, initialState);
 
 export default Reducer$NAME;
@@ -57,7 +57,7 @@ export const Actions_$NAME = {
 };
 EOM
 
-# !----------------- DEFAULT ACTIONS GENERATE: ---------------------!
+# !----------------- DEFAULT REDUCER TYPES GENERATE: ---------------!
 
 touch TReducer.ts 
 cat > TReducer.ts <<- EOM
@@ -69,25 +69,25 @@ export interface IState$NAME {
 export type T$NAME = any;
 EOM
 
-# !----------------- DEFAULT ACTIONS GENERATE: ---------------------!
+# !----------------- DEFAULT ACTION TYPES GENERATE: -----------------!
 
 touch TActions.ts 
 cat > TActions.ts <<- EOM
 enum StoreActions {
-    IS_LOADER_SHOW = 'IS_LOADER_SHOW',
-    IS_LOADER_HIDE = 'IS_LOADER_HIDE',
-    SAVE_$UPPERCASE_NAME = 'SAVE_$UPPERCASE_NAME',
+  IS_LOADER_SHOW = 'IS_LOADER_SHOW',
+  IS_LOADER_HIDE = 'IS_LOADER_HIDE',
+  SAVE_$UPPERCASE_NAME = 'SAVE_$UPPERCASE_NAME',
 };
 
 enum SagaEvents { };
 
 export const ActionTypes_$NAME = {
-    SagaEvents,
-    StoreActions,
+  SagaEvents,
+  StoreActions,
 };
 EOM
 
-# !----------------- REFRESH EXPORTS: ------------------------------!
+# !----------------- REFRESH EXPORTS: -------------------------------!
 
 NEW_MODULE_EXPORT="export { default as $LOWERCASE_NAME } from './$LOWERCASE_NAME/Reducer'"
 
