@@ -5,13 +5,13 @@ import { Shared } from '../../shared/exports';
 
 const Home: FC = () => {
   const viewModel = useHome()
-  const posts = viewModel.data;
-  if (!posts) return <Shared.Preloader/>
+  const {data: posts, isLoading} = viewModel;
+  if (isLoading) return <Shared.Preloader/>
   
   return (
     <div className="home">
       <ul>
-        {posts.map(post => (
+        {posts?.map(post => (
             <li key={post.id}>
               <b>{`${post.id}) ${post.title}:`}</b>
               <br/>

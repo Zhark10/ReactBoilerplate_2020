@@ -8,7 +8,12 @@ import rootReducer from "./root-reducer";
 
 export const history = createBrowserHistory();
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware({
+    onError: (e: any) => {
+    console.table(e.response.status);
+        // store.dispatch({ type: 'SET_ERROR_STATE' })
+    }
+});
 const composeEnhancers =
     (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const enhancer = composeEnhancers(
