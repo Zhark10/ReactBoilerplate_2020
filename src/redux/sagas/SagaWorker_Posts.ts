@@ -11,7 +11,7 @@ function* SagaWorker_Posts() {
 
 const getPosts = async () => (axios({
   method: "get",
-  url: "https://jsonplaceholder.typicode.com/postss\?_limit=15"
+  url: "https://jsonplaceholder.typicode.com/posts?_limit=15"
 }))
 
 export default SagaWorker_Posts;
