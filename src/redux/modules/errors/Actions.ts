@@ -7,7 +7,7 @@ export const Actions_Errors = {
   saga: { },
   
   store: {
-    resetError: createAction<TCurrentError>(StoreActions.RESET_ERROR),
+    resetError: createAction(StoreActions.RESET_ERROR),
     setError: createAction<TCurrentError>(StoreActions.SET_ERROR),
   }
 };

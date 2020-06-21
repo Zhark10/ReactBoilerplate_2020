@@ -5,12 +5,17 @@ import { createBrowserHistory } from 'history';
 
 import rootSaga from "./root-saga";
 import rootReducer from "./root-reducer";
-import { Actions_Errors } from "../modules/errors/Actions";
+import { ActionTypes_Errors } from "../modules/errors/TActions";
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware({
   onError: (e: any) => {
-    store.dispatch(Actions_Errors.store.setError(e.response.status))
+    store.dispatch(ActionTypes_Errors.SagaEvents)
+    // store.dispatch(Actions_Errors.store.setError(e.response.status))
+    // const resetErrorByTime = setTimeout(() => {
+    //   store.dispatch(Actions_Errors.store.resetError())
+    // }, 2000);
+    // clearTimeout(resetErrorByTime);
   }
 });
 
