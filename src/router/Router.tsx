@@ -1,6 +1,6 @@
 import React, { FC, Suspense } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import { storeConfig } from '../redux/config/store';
+import { StoreConfig } from '../redux/config/store';
 import { Shared } from '../ui/shared/exports';
 import { useSelector } from 'react-redux';
 import { TState } from '../redux/config/root-types';
@@ -11,7 +11,7 @@ const MainRouter: FC = () => {
   console.log(currentError)
   
   return (
-    <Router history={storeConfig.history}>
+    <Router history={StoreConfig.history}>
       <Suspense fallback={<Shared.Preloader />}>
         <Switch>
           <Route path="/" component={_Home} />
