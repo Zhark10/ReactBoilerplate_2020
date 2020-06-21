@@ -48,18 +48,20 @@ const cssLoaders = extra => {
   return loaders
 }
 
-const babelOptions = preset => {
+const babelOptions = presets => {
   const opts = {
     presets: [
       '@babel/preset-env'
     ],
     plugins: [
-      '@babel/plugin-proposal-class-properties'
+      '@babel/plugin-proposal-class-properties',
     ]
   }
 
-  if (preset) {
-    opts.presets.push(preset)
+  if (presets && presets.length) {
+    presets.forEach(preset => {
+      opts.presets.push(preset)
+    });
   }
 
   return opts
@@ -170,7 +172,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: {
           loader: 'babel-loader',
-          options: babelOptions('@babel/preset-typescript')
+          options: babelOptions(['@babel/preset-typescript'])
         }
       },
       {
@@ -178,7 +180,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: {
           loader: 'babel-loader',
-          options: babelOptions('@babel/preset-react')
+          options: babelOptions(['@babel/preset-react'])
         }
       },
       {
@@ -186,7 +188,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: {
           loader: 'babel-loader',
-          options: babelOptions('@babel/preset-react')
+          options: babelOptions(['@babel/preset-typescript', '@babel/preset-react'])
         }
       }
     ]
