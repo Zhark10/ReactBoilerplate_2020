@@ -1,7 +1,7 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
@@ -84,18 +84,21 @@ const jsLoaders = () => {
 const plugins = () => {
   const base = [
     new HTMLWebpackPlugin({
-      template: './index.html',
+      template: path.resolve(__dirname, 'src/template/index.html'),
       minify: {
         collapseWhitespace: isProd
       }
     }),
     new CleanWebpackPlugin(),
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, 'src/favicon.ico'),
-    //     to: path.resolve(__dirname, 'dist')
-    //   }
-    // ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/template/favicon.ico'),
+          to: path.resolve(__dirname, 'dist')
+        }
+      ]
+    }
+    ),
     new MiniCssExtractPlugin({
       filename: filename('css')
     })
@@ -121,7 +124,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.png'],
     alias: {
-      '@models': path.resolve(__dirname, 'src/models'),
+      '@template': path.resolve(__dirname, 'src/template'),
       '@': path.resolve(__dirname, 'src'),
     }
   },

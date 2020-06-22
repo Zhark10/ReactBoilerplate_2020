@@ -2,9 +2,14 @@
   "name": "my-react-boilerplate-2020",
   "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Zharavin Arkady",
+    "url": "https://github.com/Zhark10"
+  },
   "scripts": {
     "build:dev": "yarn env:dev && webpack --mode development",
     "build:release": "yarn env:prod && webpack --mode production",
+    "start": "yarn env:dev && webpack-dev-server --mode development --open",
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
     "new:shared": "cd ./scripts && ./new-shared-generate.sh",
     "new:page": "cd ./scripts && ./new-page-generate.sh",
@@ -66,12 +71,12 @@
     "@types/reselect": "2.2.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
-    "node-sass": "^4.14.1",
     "copy-webpack-plugin": "^6.0.2",
     "css-loader": "^3.6.0",
     "dotenv": "8.2.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass-loader": "^8.0.2",
     "terser-webpack-plugin": "3.0.6",
