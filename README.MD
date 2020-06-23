@@ -1,4 +1,4 @@
-### boilerplate - 2020 (REACT -- TS -- REDUX -- SAGAS
+### boilerplate - 2020 (REACT - TS - REDUX - SAGAS)
 **Key feature: CLI for auto generation MVVM (bash-scripts)**
 
 Page (generated new view, view-model, styles, exports, etc.)
@@ -14,7 +14,7 @@ New redux-entity (generated new module for redux: reducer, actions, types, etc.)
 $ yarn new:entity
 ```
 
-#### Powered by:
+### Powered by:
 - React
 - Typescript
 - Redux
@@ -26,7 +26,7 @@ $ yarn new:entity
 - Lodash
 - Reselect
  
-#### Installation and run
+### Installation and run
 
 **development build:**
 
@@ -59,12 +59,12 @@ $ yarn env:prod
 $ yarn stats
 ```
 
-#### Optimization
+### Optimization
 **production build:**
 - optimize-css-assets-webpack-plugin
 - terser-webpack-plugin
 
 **production & development analizer:**
 - webpack-bundle-analyzer
-#### Stay in touch
+### Stay in touch
 - ###### Authors (vk) - [Zharavin Arkady](https://vk.com/a.zharavin)
