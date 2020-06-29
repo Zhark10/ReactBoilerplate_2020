@@ -63,6 +63,6 @@ EOM
 NEW_LAZY_IMPORT="const _$NAME = React.lazy(() => import('../ui/pages/$NAME/$NAME'));"
 
 cd ../../../router
-echo $NEW_LAZY_IMPORT >> Router.tsx
+echo $NEW_LAZY_IMPORT >> Routes.tsx
 
 echo "${GREEN}Yeah! Successfully created, dude! :)${DEFAULT_COLOR}"
