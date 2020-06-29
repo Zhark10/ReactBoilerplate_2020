@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
-import './Home.scss';
-import { useHome } from './Home-ViewModel';
+import './Posts.scss';
+import { usePosts } from './Posts-ViewModel';
 import { Shared } from '../../shared/exports';
 
-const Home: FC = () => {
-  const viewModel = useHome()
+const Posts: FC = () => {
+  const viewModel = usePosts()
   const {data: posts, isLoading} = viewModel;
   if (isLoading) return <Shared.Preloader/>
   
   return (
-    <div className="home">
+    <div className="posts">
       <ul>
         {posts?.map(post => (
             <li key={post.id}>
@@ -27,4 +27,4 @@ const Home: FC = () => {
   )
 }
 
-export default Home;
+export default Posts;

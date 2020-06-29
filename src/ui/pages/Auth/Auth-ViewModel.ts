@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { TState } from '../../../redux/config/root-types';
 
-export const useUsers = () => {
+export const useAuth = () => {
   const {  } = useSelector((state: TState) => state);
   const { goBack } = useHistory();
   const dispatch = useDispatch();

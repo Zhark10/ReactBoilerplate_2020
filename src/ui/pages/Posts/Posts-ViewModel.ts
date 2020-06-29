@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Actions_Posts } from '../../../redux/modules/posts/Actions';
 import { TState } from '../../../redux/config/root-types';
 
-export const useHome = () => {
+export const usePosts = () => {
   const { data, isLoading} = useSelector((state: TState) => state.posts);
   const { goBack, push } = useHistory();
   const dispatch = useDispatch();
