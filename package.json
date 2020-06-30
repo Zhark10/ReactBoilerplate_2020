@@ -13,6 +13,7 @@
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
     "new:shared": "cd ./scripts && ./new-shared-generate.sh",
     "new:page": "cd ./scripts && ./new-page-generate.sh",
+    "new:modal": "cd ./scripts && ./new-modal-generate.sh",
     "new:entity": "cd ./scripts && ./new-redux-entity.sh",
     "env:dev": "cat dev.env > .env",
     "env:prod": "cat prod.env > .env"
@@ -34,6 +35,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.19.2",
     "connected-react-router": "6.6.1",
     "history": "4.10.1",
@@ -74,6 +78,7 @@
     "copy-webpack-plugin": "^6.0.2",
     "css-loader": "^3.6.0",
     "dotenv": "8.2.0",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
