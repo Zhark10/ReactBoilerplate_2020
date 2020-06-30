@@ -19,11 +19,13 @@ import React, { FC }  from 'react';
 import './$NAME.scss';
 import { use$NAME } from './$NAME-ViewModel';
 
-export const $NAME: FC  = () => {
+export const $NAME: FC = () => {
   const viewModel = use$NAME()
+  const {closeModal} = viewModel;
   return (
     <div className="$LOWERCASE_NAME">
       is $NAME modal
+      <button onClick={closeModal}>Close</button>
     </div>
   )
 }
@@ -31,8 +33,15 @@ EOM
 
 touch $NAME.scss 
 cat > $NAME.scss <<- EOM
-.$LOWERCASE_NAME {
+/$main-color: #fff;
 
+.$LOWERCASE_NAME {
+  background-color: $main-color;
+  width: 375px;
+  height: 375px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.25);
+  padding: 8px;
 }
 EOM
 
@@ -40,19 +49,21 @@ touch $NAME-ViewModel.ts
 cat > $NAME-ViewModel.ts <<- EOM
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { TState } from '../../../redux/config/root-types';
 
 export const use$NAME = () => {
   const {  } = useSelector((state: TState) => state);
-  const { goBack } = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
 
   }, [dispatch])
 
-  return { goBack }
+  const closeModal = () => {
+    dispatch(Actions_Modals.store.hideModal())
+  }
+
+  return { closeModal }
 }
 EOM
 

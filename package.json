@@ -7,7 +7,7 @@
     "url": "https://github.com/Zhark10"
   },
   "scripts": {
-    "build:dev": "yarn env:dev && webpack --mode development --open",
+    "build:dev": "yarn env:dev && webpack --mode development",
     "build:release": "yarn env:prod && webpack --mode production",
     "start": "yarn env:dev && webpack-dev-server --mode development --open",
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
