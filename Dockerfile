@@ -1,13 +1,18 @@
-# Stage 1 - the build process
+# build
 FROM node:12 as build-deps
 WORKDIR /usr/src/app
-RUN npm install webpack -g
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . ./
-RUN yarn build:release
 
-# Stage 2 - the production environment
+# prod|dev
+ARG ENV
+
+RUN npm install -g webpack
+RUN npm install -g webpack-cli
+RUN cat ${ENV}.env > .env && webpack --mode production
+
+# run
 FROM nginx:1.12-alpine
 COPY --from=build-deps /usr/src/app/dist /usr/share/nginx/html
 EXPOSE 80
