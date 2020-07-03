@@ -1,16 +1,14 @@
 # build
-FROM node:12 as build-deps
+FROM node:12-alpine as build-deps
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . ./
 
-# prod|dev
+# production|staging
 ARG ENV
 
-RUN npm install -g webpack
-RUN npm install -g webpack-cli
-RUN cat ${ENV}.env > .env && webpack --mode production
+RUN cat ${ENV}.env > .env && node_modules/.bin/webpack --mode production
 
 # run
 FROM nginx:1.12-alpine

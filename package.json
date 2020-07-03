@@ -7,16 +7,16 @@
     "url": "https://github.com/Zhark10"
   },
   "scripts": {
-    "build:dev": "yarn env:dev && webpack --mode development",
-    "build:release": "yarn env:prod && webpack --mode production",
-    "start": "yarn env:dev && webpack-dev-server --mode development --open",
+    "build:dev": "yarn env:staging && webpack --mode development",
+    "build:release": "yarn env:production && node_modules/.bin/webpack --mode production",
+    "start": "yarn env:staging && webpack-dev-server --mode development --open",
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
     "new:shared": "cd ./scripts && ./new-shared-generate.sh",
     "new:page": "cd ./scripts && ./new-page-generate.sh",
     "new:modal": "cd ./scripts && ./new-modal-generate.sh",
     "new:entity": "cd ./scripts && ./new-redux-entity.sh",
-    "env:dev": "cat dev.env > .env",
-    "env:prod": "cat prod.env > .env"
+    "env:staging": "cat staging.env > .env",
+    "env:production": "cat production.env > .env"
   },
   "eslintConfig": {
     "extends": "react-app"
