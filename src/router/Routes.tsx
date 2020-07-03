@@ -5,8 +5,8 @@ export const useRoutes = (isAuthentificated: boolean) => {
   if (isAuthentificated) {
     return (
       <Switch>
-        <Route path="/users" exact component={_Posts}/>
-        <Redirect to="/users"/>
+        <Route path="/posts" exact component={_Posts}/>
+        <Redirect to="/posts"/>
       </Switch>
     )
   }
@@ -18,7 +18,6 @@ export const useRoutes = (isAuthentificated: boolean) => {
     </Switch>
   )
 }
-
 
 const _Posts = React.lazy(() => import('../ui/pages/Posts/Posts'));
 const _Auth = React.lazy(() => import('../ui/pages/Auth/Auth'));
