@@ -1,8 +1,8 @@
-import React, { FC }  from 'react';
-import './Auth.scss';
-import { useAuth } from './Auth-ViewModel';
+import React, { FC } from 'react'
+import './Auth.scss'
+import { useAuth } from './Auth-ViewModel'
 
-const Auth: FC  = () => {
+const Auth: FC = () => {
   const viewModel = useAuth()
   const { openExampleModal } = viewModel
   return (
@@ -13,4 +13,4 @@ const Auth: FC  = () => {
   )
 }
 
-export default Auth;
+export default Auth

@@ -1,1 +1,1 @@
-export type TModals = {[key: string]: React.FC<{}>}
+export type TModals = { [key: string]: React.FC<{}> }

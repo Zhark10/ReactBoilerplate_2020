@@ -1,5 +1,5 @@
-import { Preloader } from "./Preloader/Preloader";
+import { Preloader } from './Preloader/Preloader'
 
 export const Shared = {
-    Preloader,
+  Preloader,
 }

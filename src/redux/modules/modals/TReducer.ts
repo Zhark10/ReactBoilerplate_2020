@@ -1,5 +1,5 @@
 export interface IStateModals {
-  currentModal: TCurrentModal | null,
-};
+  currentModal: TCurrentModal | null
+}
 
-export type TCurrentModal = string;
+export type TCurrentModal = string

@@ -1,6 +1,6 @@
-import { put, call }  from 'redux-saga/effects'
-import { Actions_Posts } from '../modules/posts/Actions';
-import axios from 'axios';
+import { put, call } from 'redux-saga/effects'
+import { Actions_Posts } from '../modules/posts/Actions'
+import axios from 'axios'
 
 function* SagaWorker_Posts() {
   yield put(Actions_Posts.store.showLoader())
@@ -9,9 +9,10 @@ function* SagaWorker_Posts() {
   yield put(Actions_Posts.store.hideLoader())
 }
 
-const getPosts = async () => (axios({
-  method: "get",
-  url: "https://jsonplaceholder.typicode.com/posts?_limit=15"
-}))
+const getPosts = async () =>
+  axios({
+    method: 'get',
+    url: 'https://jsonplaceholder.typicode.com/posts?_limit=15',
+  })
 
-export default SagaWorker_Posts;
+export default SagaWorker_Posts

@@ -1,6 +1,6 @@
 export interface IStateUsers {
-  isLoading: boolean,
-  data: TUsers | null,
-};
+  isLoading: boolean
+  data: TUsers | null
+}
 
-export type TUsers = any;
+export type TUsers = any

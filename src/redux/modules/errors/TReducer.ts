@@ -1,5 +1,5 @@
 export interface IStateErrors {
-  currentError: TCurrentError | null,
-};
+  currentError: TCurrentError | null
+}
 
-export type TCurrentError = string;
+export type TCurrentError = string
