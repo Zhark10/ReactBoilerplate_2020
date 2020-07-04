@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { StoreConfig } from './store'
 import { Actions_Errors } from '../modules/errors/Actions'
 
@@ -10,5 +11,5 @@ export const errorHandler = (e: any) => {
     StoreConfig.store.dispatch(Actions_Errors.store.resetError())
   }, timeToResetError)
 
-  return () => clearTimeout(resetErrorByTime)
+  return (): void => clearTimeout(resetErrorByTime)
 }

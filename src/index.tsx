@@ -7,6 +7,8 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 
 import './index.scss'
 
+console.log(process.env.API_URL)
+
 const app = (
   <Provider store={StoreConfig.store}>
     <CssBaseline />

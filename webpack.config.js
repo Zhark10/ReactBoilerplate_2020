@@ -8,6 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const Dotenv = require('dotenv-webpack')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -79,6 +80,11 @@ const jsLoaders = () => {
 
 const plugins = () => {
   const base = [
+    new Dotenv({
+      path: path.resolve(__dirname, '.env'),
+      allowEmptyValues: true,
+      systemvars: true,
+    }),
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, 'src/template/index.html'),
       minify: {
