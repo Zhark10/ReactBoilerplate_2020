@@ -17,7 +17,7 @@ touch $NAME.tsx
 cat > $NAME.tsx <<- EOM
 import React, { FC } from 'react';
 
-import './$NAME.scss'
+import './$NAME.module.scss'
 
 export const $NAME: FC = () => {
   return (
@@ -28,8 +28,8 @@ export const $NAME: FC = () => {
 }
 EOM
 
-touch $NAME.scss 
-cat > $NAME.scss <<- EOM
+touch $NAME.module.scss 
+cat > $NAME.module.scss <<- EOM
 .$LOWERCASE_NAME {
 
 }

@@ -16,7 +16,7 @@ cd ../src/ui/modals && mkdir $NAME && cd $NAME
 touch $NAME.tsx 
 cat > $NAME.tsx <<- EOM
 import React, { FC }  from 'react';
-import './$NAME.scss';
+import './$NAME.module.scss';
 import { use$NAME } from './$NAME-ViewModel';
 
 export const $NAME: FC = () => {
@@ -31,8 +31,8 @@ export const $NAME: FC = () => {
 }
 EOM
 
-touch $NAME.scss 
-cat > $NAME.scss <<- EOM
+touch $NAME.module.scss 
+cat > $NAME.module.scss <<- EOM
 /$main-color: #fff;
 
 .$LOWERCASE_NAME {
