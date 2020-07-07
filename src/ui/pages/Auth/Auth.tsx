@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import './Auth.scss'
 import { useAuth } from './Auth-ViewModel'
+
+import './Auth.module.scss'
 
 const Auth: FC = () => {
   const viewModel = useAuth()

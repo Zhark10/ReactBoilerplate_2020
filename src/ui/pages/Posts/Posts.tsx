@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
-import './Posts.scss'
 import { usePosts } from './Posts-ViewModel'
 import { Shared } from '../../shared/exports'
+
+import './Posts.module.scss'
 
 const Posts: FC = () => {
   const viewModel = usePosts()

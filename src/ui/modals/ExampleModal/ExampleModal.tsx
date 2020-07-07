@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import './ExampleModal.scss'
 import { useExampleModal } from './ExampleModal-ViewModel'
+
+import './ExampleModal.module.scss'
 
 export const ExampleModal: FC = () => {
   const viewModel = useExampleModal()

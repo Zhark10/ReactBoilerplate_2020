@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 
-import './ModalPortal.scss'
+import './ModalPortal.module.scss'
 import { useModalPortal } from './ModalPortal-ViewModel'
 import { Modals } from '../../modals/exports'
 
