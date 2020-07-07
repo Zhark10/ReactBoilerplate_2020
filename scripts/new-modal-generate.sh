@@ -16,32 +16,24 @@ cd ../src/ui/modals && mkdir $NAME && cd $NAME
 touch $NAME.tsx 
 cat > $NAME.tsx <<- EOM
 import React, { FC }  from 'react';
-import './$NAME.module.scss';
 import { use$NAME } from './$NAME-ViewModel';
 
 export const $NAME: FC = () => {
   const viewModel = use$NAME()
   const {closeModal} = viewModel;
   return (
-    <div className="$LOWERCASE_NAME">
+    <div style={{
+      background-color: $main-color;
+      width: 375px;
+      height: 375px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.25);
+      padding: 8px;
+    }}>
       is $NAME modal
       <button onClick={closeModal}>Close</button>
     </div>
   )
-}
-EOM
-
-touch $NAME.module.scss 
-cat > $NAME.module.scss <<- EOM
-/$main-color: #fff;
-
-.$LOWERCASE_NAME {
-  background-color: $main-color;
-  width: 375px;
-  height: 375px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.25);
-  padding: 8px;
 }
 EOM
 

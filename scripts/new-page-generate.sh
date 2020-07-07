@@ -16,7 +16,6 @@ cd ../src/ui/pages && mkdir $NAME && cd $NAME
 touch $NAME.tsx 
 cat > $NAME.tsx <<- EOM
 import React, { FC }  from 'react';
-import './$NAME.module.scss';
 import { use$NAME } from './$NAME-ViewModel';
 
 const $NAME: FC  = () => {
@@ -29,13 +28,6 @@ const $NAME: FC  = () => {
 }
 
 export default $NAME;
-EOM
-
-touch $NAME.module.scss 
-cat > $NAME.module.scss <<- EOM
-.$LOWERCASE_NAME {
-
-}
 EOM
 
 touch $NAME-ViewModel.ts
