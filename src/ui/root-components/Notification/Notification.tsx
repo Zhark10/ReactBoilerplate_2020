@@ -3,8 +3,6 @@ import Snackbar from '@material-ui/core/Snackbar'
 
 import { useNotification } from './Notification-ModalView'
 
-import './Notification.module.scss'
-
 export const Notification: FC = () => {
   const viewModel = useNotification()
   return (

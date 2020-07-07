@@ -1,8 +1,6 @@
 import React, { FC } from 'react'
 import { useAuth } from './Auth-ViewModel'
 
-import './Auth.module.scss'
-
 const Auth: FC = () => {
   const viewModel = useAuth()
   const { openExampleModal } = viewModel

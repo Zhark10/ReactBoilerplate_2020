@@ -2,8 +2,6 @@ import React, { FC } from 'react'
 import { usePosts } from './Posts-ViewModel'
 import { Shared } from '../../shared/exports'
 
-import './Posts.module.scss'
-
 const Posts: FC = () => {
   const viewModel = usePosts()
   const { data: posts, isLoading } = viewModel

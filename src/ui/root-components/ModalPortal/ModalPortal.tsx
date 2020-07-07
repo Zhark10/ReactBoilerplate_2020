@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 
-import './ModalPortal.module.scss'
 import { useModalPortal } from './ModalPortal-ViewModel'
 import { Modals } from '../../modals/exports'
 
@@ -13,7 +12,6 @@ export const ModalPortal: FC = () => {
   const DynamicModalContent = modalToShow ? Modals[modalToShow] : EmptyView
   return (
     <Modal
-      className="modal-portal"
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       open={isOpen}
@@ -22,6 +20,11 @@ export const ModalPortal: FC = () => {
       BackdropComponent={Backdrop}
       BackdropProps={{
         timeout: 500,
+      }}
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <DynamicModalContent />
