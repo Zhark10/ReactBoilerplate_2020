@@ -94,4 +94,7 @@ NEW_MODULE_EXPORT="export { default as $LOWERCASE_NAME } from './$LOWERCASE_NAME
 cd ..
 echo $NEW_MODULE_EXPORT >> exports.ts
 
+# !----------------- PROJECT FORMAT: -------------------------------!
+yarn format
+
 echo "${GREEN}Yeah! Successfully created, dude! :)${DEFAULT_COLOR}"

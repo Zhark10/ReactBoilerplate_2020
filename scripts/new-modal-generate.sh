@@ -69,4 +69,7 @@ cd ../
 sed -i "$!N;s/$SEARCH_EXPORT_OBJECT_VAL.*/& $NAME,/" exports.ts
 sed -i -e "1 s/^/$NEW_IMPORT\n/;" exports.ts 
 
+# !----------------- PROJECT FORMAT: -------------------------------!
+yarn format
+
 echo "${GREEN}Yeah! Successfully created, dude! :)${DEFAULT_COLOR}"
