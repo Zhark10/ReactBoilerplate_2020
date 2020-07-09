@@ -10,7 +10,7 @@ const Posts: FC = () => {
   return (
     <div className="posts">
       <ul>
-        {posts?.map((post) => (
+        {posts?.data.map((post: { id: string | number | undefined; title: any; body: React.ReactNode }) => (
           <li key={post.id}>
             <b>{`${post.id}) ${post.title}:`}</b>
             <br />

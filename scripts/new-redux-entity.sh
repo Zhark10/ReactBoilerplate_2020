@@ -19,7 +19,7 @@ cat > Reducer.ts <<- EOM
 import { handleActions } from 'redux-actions';
 import { IState$NAME, T$NAME } from './TReducer';
 import { ActionTypes_$NAME } from './TActions';
-import { TResponseModel } from 'redux/config/root-types'
+import { TStoreTemplate } from 'redux/config/root-types'
 
 const { StoreActions } = ActionTypes_$NAME;
 
@@ -28,7 +28,7 @@ const initialState: IState$NAME = {
   data: null,
 };
 
-const Reducer$NAME = handleActions<IState$NAME, TResponseModel<T$NAME>>({
+const Reducer$NAME = handleActions<IState$NAME, TStoreTemplate<T$NAME>>({
   [StoreActions.IS_LOADER_SHOW]: (state) => ({...state, isLoading: true}),
   [StoreActions.IS_LOADER_HIDE]: (state) => ({...state, isLoading: false}),
   
