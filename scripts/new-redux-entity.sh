@@ -19,6 +19,7 @@ cat > Reducer.ts <<- EOM
 import { handleActions } from 'redux-actions';
 import { IState$NAME, T$NAME } from './TReducer';
 import { ActionTypes_$NAME } from './TActions';
+import { TResponseModel } from 'redux/config/root-types'
 
 const { StoreActions } = ActionTypes_$NAME;
 
@@ -27,7 +28,7 @@ const initialState: IState$NAME = {
   data: null,
 };
 
-const Reducer$NAME = handleActions<IState$NAME, T$NAME>({
+const Reducer$NAME = handleActions<IState$NAME, TResponseModel<T$NAME>>({
   [StoreActions.IS_LOADER_SHOW]: (state) => ({...state, isLoading: true}),
   [StoreActions.IS_LOADER_HIDE]: (state) => ({...state, isLoading: false}),
   
@@ -44,6 +45,7 @@ cat > Actions.ts <<- EOM
 import { createAction } from 'redux-actions';
 import { ActionTypes_$NAME } from './TActions';
 import { T$NAME } from './TReducer';
+import { TStoreTemplate } from 'redux/config/root-types'
 const { SagaEvents, StoreActions } = ActionTypes_$NAME;
 
 export const Actions_$NAME = {
@@ -52,7 +54,7 @@ export const Actions_$NAME = {
   store: {
     showLoader: createAction(StoreActions.IS_LOADER_SHOW),
     hideLoader: createAction(StoreActions.IS_LOADER_HIDE),
-    save$NAME: createAction<T$NAME>(StoreActions.SAVE_$UPPERCASE_NAME),
+    save$NAME: createAction<TStoreTemplate<T$NAME>>(StoreActions.SAVE_$UPPERCASE_NAME),
   }
 };
 EOM
@@ -61,9 +63,11 @@ EOM
 
 touch TReducer.ts 
 cat > TReducer.ts <<- EOM
+import { TStoreTemplate } from "../../config/root-types";
+
 export interface IState$NAME {
   isLoading: boolean,
-  data: T$NAME | null,
+  data: TStoreTemplate<T$NAME> | null,
 };
 
 export type T$NAME = any;
