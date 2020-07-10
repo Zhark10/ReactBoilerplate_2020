@@ -26,13 +26,14 @@ const { StoreActions } = ActionTypes_$NAME;
 const initialState: IState$NAME = {
   isLoading: false,
   data: null,
+  responseInfo: null,
 };
 
 const Reducer$NAME = handleActions<IState$NAME, TStoreTemplate<T$NAME>>({
   [StoreActions.IS_LOADER_SHOW]: (state) => ({...state, isLoading: true}),
   [StoreActions.IS_LOADER_HIDE]: (state) => ({...state, isLoading: false}),
   
-  [StoreActions.SAVE_$UPPERCASE_NAME]: (state, action) => ({...state, data: action.payload}),
+  [StoreActions.SAVE_$UPPERCASE_NAME]: (state, action) => ({...state, ...action.payload}),
 }, initialState);
 
 export default Reducer$NAME;
@@ -65,9 +66,8 @@ touch TReducer.ts
 cat > TReducer.ts <<- EOM
 import { TStoreTemplate } from "../../config/root-types";
 
-export interface IState$NAME {
+export interface IState$NAME extends TStoreTemplate<T$NAME> {
   isLoading: boolean,
-  data: TStoreTemplate<T$NAME> | null,
 };
 
 export type T$NAME = any;

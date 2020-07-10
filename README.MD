@@ -1,6 +1,8 @@
 ### Boilerplate - 2020 (REACT - TS - REDUX - SAGAS)
 **Key feature: CLI for auto generation MVVM (bash-scripts)**
 
+***For example (generation via...): Linux - terminal, Windows - Git Bash***
+
 Page (is generate new view, view-model, styles, exports, etc.)
 ```sh
 $ yarn new:page
@@ -10,6 +12,10 @@ Shared component (is generate new view, styles, exports)
 $ yarn new:shared
 ```
 New redux-entity (is generate new module for redux: reducer, actions, types, etc.)
+```sh
+$ yarn new:entity
+```
+New modal (is generate new modal in portal, default styles, button to close, etc.)
 ```sh
 $ yarn new:entity
 ```
