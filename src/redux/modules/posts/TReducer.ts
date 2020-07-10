@@ -1,8 +1,7 @@
 import { TStoreTemplate } from '../../config/root-types'
 
-export interface IStatePosts {
+export interface IStatePosts extends TStoreTemplate<TPosts> {
   isLoading: boolean
-  data: TStoreTemplate<TPosts> | null
 }
 
 export type TPosts = any
