@@ -9,7 +9,7 @@ const validToken = () => {
 }
 
 export const RequestMethods = () => {
-  const API_URL = process.env.REACT_APP_API_URL
+  const API_URL = process.env.REACT_APP_API_URL || 'https://jsonplaceholder.typicode.com'
   const config = !!validToken() ? { headers: { Authorization: 'Bearer ' + validToken() } } : {}
 
   async function post<T>(url: string, data: any): Promise<TStoreTemplate<T>> {
