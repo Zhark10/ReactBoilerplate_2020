@@ -1,6 +1,6 @@
 enum StoreActions {
-  HIDE_MODAL = 'HIDE_MODAL',
-  SHOW_MODAL = 'SHOW_MODAL',
+  HIDE_MODAL = 'MODALS/HIDE_MODAL',
+  SHOW_MODAL = 'MODALS/SHOW_MODAL',
 }
 
 export const ActionTypes_Modals = {

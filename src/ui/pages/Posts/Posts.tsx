@@ -1,11 +1,14 @@
 import React, { FC } from 'react'
 import { usePosts } from './Posts-ViewModel'
 import { Shared } from '../../shared/exports'
+import { Link } from 'react-router-dom'
 
 const Posts: FC = () => {
   const viewModel = usePosts()
   const { data: posts, isLoading } = viewModel
   if (isLoading) return <Shared.Preloader />
+
+  console.log(posts)
 
   return (
     <div className="posts">
@@ -18,7 +21,7 @@ const Posts: FC = () => {
           </li>
         ))}
       </ul>
-      <button onClick={() => viewModel.push('users')}>Go to Users</button>
+      <Link to={'/users'} />
     </div>
   )
 }
