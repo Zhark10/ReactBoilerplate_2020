@@ -5,7 +5,7 @@ export const useRoutes = (isAuthentificated: boolean) => {
   if (isAuthentificated) {
     return (
       <Switch>
-        <Route path="/posts" exact component={_Posts} />
+        <Route path="/posts" component={_Posts} />
         <Redirect to="/posts" />
       </Switch>
     )
