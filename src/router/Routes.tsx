@@ -14,6 +14,7 @@ export const useRoutes = (isAuthentificated: boolean) => {
   return (
     <Switch>
       <Route path="/signIn" exact component={_SignIn} />
+      <Route path="/signUp" exact component={_SignUp} />
       <Redirect to="/signIn" />
     </Switch>
   )
@@ -21,3 +22,4 @@ export const useRoutes = (isAuthentificated: boolean) => {
 
 const _Posts = React.lazy(() => import('../ui/pages/Posts/Posts'))
 const _SignIn = React.lazy(() => import('../ui/pages/SignIn/SignIn'))
+const _SignUp = React.lazy(() => import('../ui/pages/SignUp/SignUp'))
