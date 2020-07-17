@@ -10,7 +10,7 @@ import { RootComponent } from '../ui/root-components/exports'
 const MainRouter: FC = () => {
   const { currentError } = useSelector((state: TState) => state.errors)
 
-  const isAutheficated = true // custom auth logic
+  const isAutheficated = false // custom auth logic
   const routes = useRoutes(isAutheficated)
   if (currentError) return <div>{currentError}</div>
 
