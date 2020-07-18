@@ -11,6 +11,7 @@ function* SagaWorker_Posts() {
   //------------------------- Getting and saving posts ---------------------------//
 
   const payload = yield call(async () => await get<TPosts>('/posts?_limit=15'))
+  console.log(payload.data)
   yield put(Actions_Posts.store.savePosts(payload.data))
 
   yield put(Actions_Posts.store.hideLoader())
