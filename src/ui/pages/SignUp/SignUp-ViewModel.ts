@@ -1,14 +1,30 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { TState } from '../../../redux/config/root-types'
+import React from 'react'
 
 export const useSignUp = () => {
-  const {} = useSelector((state: TState) => state)
-  const { goBack } = useHistory()
-  const dispatch = useDispatch()
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const [displayName, setDisplayName] = React.useState('')
+  const [error, setError] = React.useState(null)
+  const createUserWithEmailAndPasswordHandler = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    email: string,
+    password: string,
+  ) => {
+    event.preventDefault()
+    setEmail('')
+    setPassword('')
+    setDisplayName('')
+  }
+  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.currentTarget
+    if (name === 'userEmail') {
+      setEmail(value)
+    } else if (name === 'userPassword') {
+      setPassword(value)
+    } else if (name === 'displayName') {
+      setDisplayName(value)
+    }
+  }
 
-  useEffect(() => {}, [dispatch])
-
-  return { goBack }
+  return { onChangeHandler, email, password, displayName, error, createUserWithEmailAndPasswordHandler, setError }
 }

@@ -13,9 +13,9 @@ export const useRoutes = (isAuthentificated: boolean) => {
 
   return (
     <Switch>
-      <Route path="/signIn" exact component={_SignIn} />
       <Route path="/signUp" exact component={_SignUp} />
-      <Redirect to="/signIn" />
+      <Route path="/signIn" exact component={_SignIn} />
+      <Redirect to="/signUp" />
     </Switch>
   )
 }

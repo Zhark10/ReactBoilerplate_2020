@@ -3,30 +3,8 @@ import { useSignUp } from './SignUp-ViewModel'
 import { Link } from 'react-router-dom'
 
 const SignUp = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [displayName, setDisplayName] = useState('')
-  const [error, setError] = useState(null)
-  const createUserWithEmailAndPasswordHandler = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    email: string,
-    password: string,
-  ) => {
-    event.preventDefault()
-    setEmail('')
-    setPassword('')
-    setDisplayName('')
-  }
-  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.currentTarget
-    if (name === 'userEmail') {
-      setEmail(value)
-    } else if (name === 'userPassword') {
-      setPassword(value)
-    } else if (name === 'displayName') {
-      setDisplayName(value)
-    }
-  }
+  const vm = useSignUp()
+  const { createUserWithEmailAndPasswordHandler, displayName, email, error, onChangeHandler, password } = vm
   return (
     <div className="mt-8">
       <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
