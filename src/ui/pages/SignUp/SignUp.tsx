@@ -4,7 +4,15 @@ import { Link } from 'react-router-dom'
 
 const SignUp = () => {
   const vm = useSignUp()
-  const { createUserWithEmailAndPasswordHandler, displayName, email, error, onChangeHandler, password } = vm
+  const {
+    createUserWithEmailAndPasswordHandler,
+    displayName,
+    email,
+    error,
+    onChangeHandler,
+    password,
+    form: { errors, handleSubmit, onSubmit, register },
+  } = vm
   return (
     <div className="mt-8">
       <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
@@ -15,6 +23,9 @@ const SignUp = () => {
             Display Name:
           </label>
           <input
+            ref={register({
+              validate: (value) => value !== 'admin' || 'Nice try!',
+            })}
             type="text"
             className="my-1 p-1 w-full "
             name="displayName"
@@ -27,6 +38,13 @@ const SignUp = () => {
             Email:
           </label>
           <input
+            ref={register({
+              required: 'Required',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'invalid email address',
+              },
+            })}
             type="email"
             className="my-1 p-1 w-full"
             name="userEmail"
@@ -60,7 +78,7 @@ const SignUp = () => {
         <button className="bg-red-500 hover:bg-red-600 w-full py-2 text-white">Sign In with Google</button>
         <p className="text-center my-3">
           Already have an account?{' '}
-          <Link to="/" className="text-blue-500 hover:text-blue-600">
+          <Link to="/signIn" className="text-blue-500 hover:text-blue-600">
             Sign in here
           </Link>
         </p>
