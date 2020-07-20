@@ -20,6 +20,9 @@ New modal (is generate new modal in portal, default styles, button to close, etc
 $ yarn new:entity
 ```
 
+## Description
+A modern template for building SPA that includes firebase authentication, a user-friendly portal for modals, handling and displaying server errors at the middleware.
+
 ### Powered by:
 - React
 - Typescript
@@ -29,8 +32,8 @@ $ yarn new:entity
 - React-router-redux
 - React-router-dom
 - Connected-react-router
-- Lodash
-- Reselect
+- Use-form
+- Firebase
  
 ### Installation and run
 
