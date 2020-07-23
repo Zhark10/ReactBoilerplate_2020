@@ -1,14 +1,19 @@
 import { StoreConfig } from './store'
-import { Actions_Errors } from '../modules/errors/Actions'
+import { Actions_Notifications } from 'redux/modules/notifications/Actions'
+import { TCurrentNotification } from 'redux/modules/notifications/TReducer'
 
 export const errorHandler = (e: any) => {
   const errorMessageToSave = getErrorMessageByCode(e.response.status)
-  StoreConfig.store.dispatch(Actions_Errors.store.setError(errorMessageToSave))
+  const error: TCurrentNotification = {
+    type: 'Error',
+    message: errorMessageToSave,
+  }
+  StoreConfig.store.dispatch(Actions_Notifications.store.showNotification(error))
 
   const timeToResetError = 2000
 
   const resetErrorByTime = setTimeout(() => {
-    StoreConfig.store.dispatch(Actions_Errors.store.resetError())
+    StoreConfig.store.dispatch(Actions_Notifications.store.hideNotification())
   }, timeToResetError)
 
   return () => clearTimeout(resetErrorByTime)

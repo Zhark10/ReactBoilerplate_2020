@@ -12,9 +12,9 @@ export const Notification: FC = () => {
           vertical: 'bottom',
           horizontal: 'left',
         }}
-        open={!!viewModel.currentError}
+        open={!!viewModel.currentNotification?.message}
         autoHideDuration={5000}
-        message={viewModel.currentError}
+        message={viewModel.currentNotification?.message}
       />
     </div>
   )

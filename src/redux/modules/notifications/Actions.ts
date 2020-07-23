@@ -6,7 +6,7 @@ const { StoreActions } = ActionTypes_Notifications
 
 export const Actions_Notifications = {
   store: {
-    resetNotification: createAction(StoreActions.HIDE_NOTIFICATION),
-    setNotification: createAction<TCurrentNotification>(StoreActions.SHOW_NOTIFICATION),
+    hideNotification: createAction(StoreActions.HIDE_NOTIFICATION),
+    showNotification: createAction<TCurrentNotification>(StoreActions.SHOW_NOTIFICATION),
   },
 }

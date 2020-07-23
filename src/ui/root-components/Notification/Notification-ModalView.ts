@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { TState } from '../../../redux/config/root-types'
 
 export const useNotification = () => {
-  const { currentError } = useSelector((state: TState) => state.errors)
+  const { currentNotification } = useSelector((state: TState) => state.notifications)
 
-  return { currentError }
+  return { currentNotification }
 }
