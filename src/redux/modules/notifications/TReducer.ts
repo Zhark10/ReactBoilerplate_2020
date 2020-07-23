@@ -1,7 +1,10 @@
-import { TStoreTemplate } from '../../config/root-types'
-
-export interface IStateNotifications extends TStoreTemplate<TNotifications> {
-  isLoading: boolean
+export interface IStateNotifications {
+  currentNotification: TCurrentNotification | null
 }
 
-export type TNotifications = any
+export type TCurrentNotification = {
+  message: string
+  type: TNotificationType
+}
+
+export type TNotificationType = 'Success' | 'Error' | 'Info'

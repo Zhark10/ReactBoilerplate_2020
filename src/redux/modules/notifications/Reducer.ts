@@ -1,24 +1,19 @@
 import { handleActions } from 'redux-actions'
-import { IStateNotifications, TNotifications } from './TReducer'
+import { IStateNotifications, TCurrentNotification } from './TReducer'
 import { ActionTypes_Notifications } from './TActions'
-import { TStoreTemplate } from 'redux/config/root-types'
 
 const { StoreActions } = ActionTypes_Notifications
 
 const initialState: IStateNotifications = {
-  isLoading: false,
-  data: null,
-  responseInfo: null,
+  currentNotification: null,
 }
 
-const ReducerNotifications = handleActions<IStateNotifications, TStoreTemplate<TNotifications>>(
+const ReducerErrors = handleActions<IStateNotifications, TCurrentNotification>(
   {
-    [StoreActions.IS_LOADER_SHOW]: (state) => ({ ...state, isLoading: true }),
-    [StoreActions.IS_LOADER_HIDE]: (state) => ({ ...state, isLoading: false }),
-
-    [StoreActions.SAVE_NOTIFICATIONS]: (state, action) => ({ ...state, ...action.payload }),
+    [StoreActions.HIDE_NOTIFICATION]: () => ({ currentNotification: null }),
+    [StoreActions.SHOW_NOTIFICATION]: (_, action) => ({ currentNotification: action.payload }),
   },
   initialState,
 )
 
-export default ReducerNotifications
+export default ReducerErrors
