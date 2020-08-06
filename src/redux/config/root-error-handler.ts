@@ -9,19 +9,12 @@ export const errorHandler = (e: any) => {
     message: errorMessageToSave,
   }
   StoreConfig.store.dispatch(Actions_Notifications.store.showNotification(error))
-
-  const timeToResetError = 2000
-
-  const resetErrorByTime = setTimeout(() => {
-    StoreConfig.store.dispatch(Actions_Notifications.store.hideNotification())
-  }, timeToResetError)
-
-  return () => clearTimeout(resetErrorByTime)
 }
 
 const getErrorMessageByCode = (code: string): string => {
   const messages: any = {
     400: 'Something went wrong',
+    401: 'Unauthorize request',
     // TODO: other errors
   }
 

@@ -13,7 +13,7 @@ export const Notification: FC = () => {
           horizontal: 'left',
         }}
         open={!!viewModel.currentNotification?.message}
-        autoHideDuration={5000}
+        autoHideDuration={2000}
         message={viewModel.currentNotification?.message}
       />
     </div>
