@@ -8,11 +8,11 @@ import { useRoutes } from './Routes'
 import { RootComponent } from '../ui/root-components/exports'
 
 const MainRouter: FC = () => {
-  const { currentError } = useSelector((state: TState) => state.errors)
+  const { currentNotification } = useSelector((state: TState) => state.notifications)
 
   const isAutheficated = false // custom auth logic
   const routes = useRoutes(isAutheficated)
-  if (currentError) return <div>{currentError}</div>
+  if (currentNotification) return <div>{currentNotification}</div>
 
   return (
     <>
