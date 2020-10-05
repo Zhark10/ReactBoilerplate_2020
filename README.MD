@@ -17,7 +17,7 @@ $ yarn new:entity
 ```
 New modal (is generate new modal in portal, default styles, button to close, etc.)
 ```sh
-$ yarn new:entity
+$ yarn new:modal
 ```
 
 ## Description
