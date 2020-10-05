@@ -1,6 +1,12 @@
 import React, { FC, useState } from 'react'
 import { useSignUp } from './SignUp-ViewModel'
 import { Link } from 'react-router-dom'
+import styled, { css } from 'react-emotion'
+
+const Heading = styled('h1')`
+  background-color: ${(props: { bg: any }) => props.bg};
+  color: ${(props: { fg: any }) => props.fg};
+`
 
 const SignUp = () => {
   const vm = useSignUp()
@@ -15,7 +21,9 @@ const SignUp = () => {
   } = vm
   return (
     <div className="mt-8">
-      <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
+      <Heading bg="#008f68" fg="#fae042">
+        Sign Up
+      </Heading>
       <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
         {error !== null && <div className="py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
         <form className="">
