@@ -3,6 +3,8 @@ import { useSignUp } from './SignUp-ViewModel'
 import { Link } from 'react-router-dom'
 import { SignUpComps } from './SignUp-StyledComps'
 
+const { H1, LoginForm, MainContainer, Form, Input } = SignUpComps
+
 const SignUp = () => {
   const vm = useSignUp()
   const {
@@ -12,17 +14,18 @@ const SignUp = () => {
     error,
     onChangeHandler,
     password,
+    setError,
     form: { errors, handleSubmit, onSubmit, register },
   } = vm
   return (
-    <SignUpComps.MainContainer>
-      <SignUpComps.LoginForm color="#008f68">
-        <SignUpComps.H1>Sign Up</SignUpComps.H1>
+    <MainContainer>
+      <LoginForm color="#008f68">
+        <H1>Sign Up</H1>
         <div>
           {error !== null && <div>{error}</div>}
-          <form>
+          <Form>
             <label htmlFor="displayName">Display Name:</label>
-            <input
+            <Input
               ref={register({
                 validate: (value) => value !== 'admin' || 'Nice try!',
               })}
@@ -34,7 +37,7 @@ const SignUp = () => {
               onChange={onChangeHandler}
             />
             <label htmlFor="userEmail">Email:</label>
-            <input
+            <Input
               ref={register({
                 required: 'Required',
                 pattern: {
@@ -50,7 +53,7 @@ const SignUp = () => {
               onChange={onChangeHandler}
             />
             <label htmlFor="userPassword">Password:</label>
-            <input
+            <Input
               type="password"
               name="userPassword"
               value={password}
@@ -65,15 +68,15 @@ const SignUp = () => {
             >
               Sign up
             </button>
-          </form>
+          </Form>
           <p>or</p>
           <button>Sign In with Google</button>
           <p>
             Already have an account? <Link to="/signIn">Sign in here</Link>
           </p>
         </div>
-      </SignUpComps.LoginForm>
-    </SignUpComps.MainContainer>
+      </LoginForm>
+    </MainContainer>
   )
 }
 export default SignUp
