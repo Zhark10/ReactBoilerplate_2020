@@ -8,6 +8,10 @@
 # production
 /build
 
+# gen
+npm-shrinkwrap.json
+package-lockdown.json
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

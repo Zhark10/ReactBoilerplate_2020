@@ -18,7 +18,8 @@
     "new:modal": "cd ./scripts && ./new-modal-generate.sh",
     "new:entity": "cd ./scripts && ./new-redux-entity.sh",
     "env:staging": "cat staging.env > .env",
-    "env:production": "cat production.env > .env"
+    "env:production": "cat production.env > .env",
+    "gen:last-versions": "npm shrinkwrap && node ./scripts/lockdown-generation"
   },
   "eslintConfig": {
     "extends": "react-app"
