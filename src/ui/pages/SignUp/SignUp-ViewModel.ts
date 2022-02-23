@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-export const useSignUp = () => {
+export const useViewModel = () => {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [displayName, setDisplayName] = React.useState('')
@@ -20,12 +20,14 @@ export const useSignUp = () => {
   }
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.currentTarget
-    if (name === 'userEmail') {
-      setEmail(value)
-    } else if (name === 'userPassword') {
-      setPassword(value)
-    } else if (name === 'displayName') {
-      setDisplayName(value)
+    const actions: { [key: string]: React.Dispatch<React.SetStateAction<string>> } = {
+      userEmail: setEmail,
+      userPassword: setPassword,
+      displayName: setDisplayName,
+    }
+
+    if (actions.hasOwnProperty(name)) {
+      actions[name](value)
     }
   }
 

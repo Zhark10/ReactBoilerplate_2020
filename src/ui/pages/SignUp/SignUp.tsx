@@ -1,12 +1,11 @@
 import React, { FC, useState } from 'react'
-import { useSignUp } from './SignUp-ViewModel'
+import { useViewModel } from './SignUp-ViewModel'
 import { Link } from 'react-router-dom'
 import { SignUpComps } from './SignUp-StyledComps'
 
 const { H1, LoginForm, MainContainer, Form, Input } = SignUpComps
 
 const SignUp = () => {
-  const vm = useSignUp()
   const {
     createUserWithEmailAndPasswordHandler,
     displayName,
@@ -16,7 +15,7 @@ const SignUp = () => {
     password,
     setError,
     form: { errors, handleSubmit, onSubmit, register },
-  } = vm
+  } = useViewModel()
   return (
     <MainContainer>
       <LoginForm color="#008f68">
